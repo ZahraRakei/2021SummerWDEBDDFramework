@@ -28,8 +28,7 @@ public class BaseClass {
     public static WebDriver driver;
     public static WebDriverWait wait;
 
-    public void setUp(String browserName, String url) {
-
+    public void setUp(String browserName) {
         getLocalDriver(browserName);
 
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

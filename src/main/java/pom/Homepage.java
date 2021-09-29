@@ -12,32 +12,5 @@ public class Homepage extends BaseClass {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy (id = "gh-ac")
-    public WebElement searchBox;
-
-    @FindBy (id = "gh-cat")
-    public WebElement categoryComboBox;
-
-    @FindBy (id = "gh-btn")
-    public WebElement searchButton;
-
-
-
-    public void sendKeysToSearchBox(String searchTerm) {
-        searchBox.sendKeys(searchTerm);
-    }
-
-    public void selectCategoryByVisibleText(String visText) {
-        Select select = new Select(categoryComboBox);
-
-        select.selectByVisibleText(visText);
-    }
-
-    public SearchResults clickSearchButton() {
-        searchButton.click();
-
-        return new SearchResults();
-    }
-
 
 }
