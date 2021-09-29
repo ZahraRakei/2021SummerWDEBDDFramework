@@ -43,18 +43,29 @@ public class SharedStepsUI extends BaseClass {
         return new Homepage();
     }
 
+    public SearchResultsPage doSearchWithCategorySelection(String searchTerm, String visibleText) {
+        sendKeysToSearchBox(searchTerm);
+        selectCategoryByVisibleText(visibleText);
+
+        return clickSearchButton();
+    }
+
+    public SearchResultsPage doSearch(String searchTerm) {
+        sendKeysToSearchBox(searchTerm);
+
+        return clickSearchButton();
+    }
+
     public void sendKeysToSearchBox(String searchTerm) {
-        searchBox.sendKeys(searchTerm);
+        sendKeysToElement(searchBox, searchTerm);
     }
 
     public void selectCategoryByVisibleText(String visText) {
-        Select select = new Select(categoryComboBox);
-
-        select.selectByVisibleText(visText);
+        selectOptionByVisibleText(categoryComboBox, visText);
     }
 
     public SearchResultsPage clickSearchButton() {
-        searchButton.click();
+        clickOnElement(searchButton);
 
         return new SearchResultsPage();
     }

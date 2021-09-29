@@ -203,12 +203,12 @@ public class BaseClass {
         driver.findElement(By.cssSelector(locator)).sendKeys(value, Keys.ENTER);
     }
 
-    public void typeByXpath(String locator, String value) {
-        driver.findElement(By.xpath(locator)).sendKeys(value);
+    public void typeByXpath(By by, String value) {
+        driver.findElement(by).sendKeys(value);
     }
 
-    public void takeEnterKeys(String locator) {
-        driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
+    public void sendKeysToElement(WebElement element, String keys) {
+        element.sendKeys(keys);
     }
 
     public void clearInputField(String locator) {
